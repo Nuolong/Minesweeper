@@ -7,7 +7,7 @@ public class MinesweeperTest{
     int r = kb.nextInt();
     System.out.println("How many mines would you like? ");
     int m = kb.nextint();
-    Minesweeper arr = new Minesweeper(r,c);
+    Minesweeper arr = new Minesweeper(r,m);
     System.out.println("Pick a position: ");
   }
 }
