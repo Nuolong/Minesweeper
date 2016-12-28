@@ -3,7 +3,7 @@ public class Minesweeper{
   private int[][] arrresult //array with input
   
   public Minsweeper(int s; int m){
-    arrans=new int[s][s];
+    arrans=new int[s][m];
     for(int i = 0; i<m; i++){ //for loop for while the number of total mines is less than the number of mines needed
       for(int r=0; r<arr.length; r++){
         for(int c= 0; c< arr.length[r]; c++){
