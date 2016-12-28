@@ -5,13 +5,43 @@ public class Minesweeper{
   public Minsweeper(int s; int m){
     arrans=new int[s][s];
     for(int i = 0; i<m; i++){ //for loop for while the number of total mines is less than the number of mines needed
-      for(int r=0; r<arr.length; r++){
+      for(int r=0; r<arrans.length; r++){
         for(int c= 0; c< arr.length[r]; c++){
           if((int)Math.random()+1 == 1 ){
-            arr[r][c] = 1;  //x is a mine
+            arrans[r][c] = -1;  //x is a mine
           }
           else{
-            arr[r][c] = 0; // means there is no mine
+            arrans[r][c] = 0; // means there is no mine
+          }
+        }
+      }
+    }
+    for(int k=0; k<arrans.length;k++){
+      for(int j=0; j<arrans.length;j++){
+        if (arrans[k][j]==-1){
+          if(arrans[k][j+1]==0){
+            arrans[k][j+1]+=1;
+          }
+          if(arrans[k][j-1]==0){
+            arrans[k][j-1]+=1;
+          }
+          if(arrans[k-1][j]==0){
+            arrans[k-1][j]+=1;
+          }
+          if(arrans[k+1][j]==0){
+            arrans[k+1][j]+=1;
+          }
+          if(arrans[k+1][j+1]==0){
+            arrans[k+1][j+1]+=1;
+          }
+          if(arrans[k-1][j+1]==0){
+            arrans[k-1][j+1]+=1;
+          }
+          if(arrans[k-1][j-1]==0){
+            arrans[k-1][j-1]+=1;
+          }
+          if(arrans[k+1][j-1]==0){
+            arrans[k+1][j-1]+=1;
           }
         }
       }
