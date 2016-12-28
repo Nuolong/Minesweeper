@@ -10,6 +10,9 @@ public class Minesweeper{
           if((int)Math.random()+1 == 1 ){
             arr[r][c] = 1;  //x is a mine
           }
+          else{
+            arr[r][c] = 0; // means there is no mine
+          }
         }
       }
     }
