@@ -19,6 +19,7 @@ public class Minesweeper{
       arrresult[q][w]==1;
       return true;
     }
+    arrresult=arrans;
     return false;
   }
   
