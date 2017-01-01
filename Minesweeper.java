@@ -9,7 +9,7 @@ public class Minesweeper{
       for(int r = 0; r < arrans.length; r++){
         for(int c = 0; c < arr.length[r]; c++){
           if((int)Math.random() + 1 == 1 ){
-            arrans[r][c] = -1;  //x is a mine
+            arrans[r][c] = -1;  //-1 is a mine
             a++; //INCREMENT TO END THE WHILE LOOP WHEN MINE QUANTITY IS FULFILLED
           }
           else{
@@ -21,28 +21,28 @@ public class Minesweeper{
     for(int k = 0; k < arrans.length; k++){
       for(int j = 0; j < arrans.length; j++){
         if (arrans[k][j] == -1){
-          if(arrans[k][j + 1] == 0){
+          if(arrans[k][j + 1] != -1){
             arrans[k][j + 1] += 1;
           }
-          if(arrans[k][j- 1] == 0){
+          if(arrans[k][j- 1] != -1){
             arrans[k][j - 1] += 1;
           }
-          if(arrans[k - 1][j] == 0){
+          if(arrans[k - 1][j] != -1){
             arrans[k - 1][j] += 1;
           }
-          if(arrans[k + 1][j] == 0){
+          if(arrans[k + 1][j] != -1){
             arrans[k + 1][j] += 1;
           }
-          if(arrans[k + 1][j + 1] == 0){
+          if(arrans[k + 1][j + 1] != -1){
             arrans[k + 1][j + 1] += 1;
           }
-          if(arrans[k - 1][ j+1 ] == 0){
+          if(arrans[k - 1][ j+1 ] != -1){
             arrans[k - 1][ j+1 ] += 1;
           }
-          if(arrans[k - 1][j - 1] == 0){
+          if(arrans[k - 1][j - 1] != -1){
             arrans[k - 1][j - 1] += 1;
           }
-          if(arrans[k + 1][j - 1] == 0){
+          if(arrans[k + 1][j - 1] != -1){
             arrans[k + 1][j - 1] += 1;
           }
         }
@@ -51,10 +51,10 @@ public class Minesweeper{
   }
   public boolean isMine(int q, int w){
     if (arrans[q][w] == -1){
-      arrresult[q][w] == 1;
+      arrresult= arrans;
       return true;
     }
-    arrresult = arrans;
+    arrresult[q][w] = arrans[q][w];
     return false;
   }
   
@@ -63,6 +63,8 @@ public class Minesweeper{
   
   }
   
-  public String toString(){}
+  public String toString(){
+    
+  }
   
 }
