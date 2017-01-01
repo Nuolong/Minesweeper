@@ -10,7 +10,7 @@ public class MinesweeperTest{
     
     if((r * r) <= m){
       System.out.println("You specified too many mines! You can't win!");
-      //return SOMETHING I DON'T KNOW WHAT TO PUT HERE TO STOP EVERYTHING, I FORGOT. IS IT BREAK?
+      return;
     }
     
     Minesweeper arr = new Minesweeper(r,m);
@@ -18,13 +18,21 @@ public class MinesweeperTest{
     int q = kb.nextInt();
     System.out.println("Enter the column coordinate of the spot you would like to choose:");
     int w = kb.nextInt();
+    System.out.println("What would you like to do?\n1 - Select\n2 - Flag\n3 - Unsure");
+    int s = kb.nextInt();
     
+    if(s == 1){
     if(arr.isMine(q,w) == true){
       System.out.println("Game over! You have selected a mine! ;w;");
-      //return SOMETHING I DON'T KNOW WHAT TO PUT HERE TO STOP EVERYTHING, I FORGOT. IS IT BREAK?
+      return;
+      }
+    if(){}  
     }
-    else{
+    else if(s == 2){
+    //*******//
     }
-    
+    else if(s == 3){
+    //*******//
+    }
   }
 }
