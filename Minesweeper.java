@@ -50,12 +50,17 @@ public class Minesweeper{
     }
   }
   public boolean isMine(int q, int w){
-    if (arrans[q][w] == 1){
+    if (arrans[q][w] == -1){
       arrresult[q][w] == 1;
       return true;
     }
     arrresult = arrans;
     return false;
+  }
+  
+  public int surroundingMines(int q, int w){
+    if(arrans[q - 1][w - 1] == -1
+  
   }
   
   public String toString(){}
