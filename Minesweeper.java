@@ -95,9 +95,9 @@ public class Minesweeper{
         }
       }
     }
-    for(int a=0; a<arrresult.length; a++){
+    for(int z=0; z<arrresult.length; z++){
       for(int b=0; b<arrresult.length;b++){
-        arrresult[a][b]="?";
+        arrresult[z][b]="?";
       }
     }
   }     
@@ -106,7 +106,7 @@ public class Minesweeper{
     if (arrans[q][w] == -1){
       return true;
     }
-    arrresult[q][w] = Interger.toString(arrans[q][w]);
+    arrresult[q][w] = Integer.toString(arrans[q][w]);
     return false;
   }
 //-------------------------------------------------------//
@@ -164,7 +164,7 @@ public class Minesweeper{
     for(int k=0; k< arrresult.length; k++){
       System.out.println("");
       for(int j=0; j< arrresult.length; j++){
-          System.out.print(" " + arrresult[k][j]+ " ")
+          System.out.print(" " + arrresult[k][j]+ " ");
       }
     }
   }
