@@ -3,7 +3,7 @@ public class Minesweeper{
   private int[][] arrans; //array with answers
   private String[][] arrresult; //array with input
 //-------------------------------------------------------//  
-  public Minesweeper(int s; int m){
+  public Minesweeper(int s, int m){
     arrans = new int[s][s];
     arrresult = new String[s][s];
     int a = 0;
