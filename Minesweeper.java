@@ -29,26 +29,26 @@ public class Minesweeper{
               bottomRight(k,j);
               middleRight(k,j);
             }
-            else if(j != 0 && j != arrans.length){ //the top edge of the field excluding the corners
+            else if(j != 0 && j != arrans.length - 1){ //the top edge of the field excluding the corners
               middleLeft(k,j);
               middleRight(k,j);
               bottomLeft(k,j);
               bottomMiddle(k,j);
               bottomRight(k,j);
             }
-            else if(j == arrans.length){ //top right corner of the field
+            else if(j == arrans.length - 1){ //top right corner of the field
               middleLeft(k,j);
               bottomLeft(k,j);
               bottomMiddle(k,j);
             }
           }
           else if(j == 0){ 
-            if(k == arrans.length){ //bottom left corner of the field
+            if(k == arrans.length - 1){ //bottom left corner of the field
               topMiddle(k,j);
               topRight(k,j);
               middleRight(k,j);
             }
-            if(k != 0 && k != arrans.length){ //the left edge of the field excluding the corners
+            if(k != 0 && k != arrans.length - 1){ //the left edge of the field excluding the corners
               topMiddle(k,j);
               topRight(k,j);
               middleRight(k,j);
@@ -56,27 +56,39 @@ public class Minesweeper{
               bottomRight(k,j);
             }
           }
-          else if(j == arrans.length){
-            if(k != 0 && k != arrans.length){ //the right edge of the field excluding the corners
+          else if(j == arrans.length - 1){
+            if(k != 0 && k != arrans.length - 1){ //the right edge of the field excluding the corners
               topMiddle(k,j);
               topLeft(k,j);
               middleLeft(k,j);
               bottomLeft(k,j);
               bottomMiddle(k,j);
             }
-            else if(k == arrans.length){ //the bottom right corner of the field
+            else if(k == arrans.length - 1){ //the bottom right corner of the field
               topMiddle(k,j);
               topLeft(k,j);
               middleLeft(k,j);
             }
           }
-          else if(k == arrans.length){
-            if(j != 0 && j != arrans.length){ //the bottom edge of the field exclusing the corner
+          else if(k == arrans.length - 1){
+            if(j != 0 && j != arrans.length - 1){ //the bottom edge of the field exclusing the corner
               middleLeft(k,j);
               middleRight(k,j);
               topLeft(k,j);
               topMiddle(k,j);
               topRight(k,j);
+            }
+          }
+          else if(k != 0 && k != arrans.length - 1){
+            if(j != 0 && j != arrans.length - 1){
+              topLeft(k,j);
+              topMiddle(k,j);
+              topRight(k,j);
+              middleLeft(k,j);
+              middleRight(k,j);
+              bottomLeft(k,j);
+              bottomMiddle(k,j);
+              bottomRight(k,j);
             }
           }
         }
