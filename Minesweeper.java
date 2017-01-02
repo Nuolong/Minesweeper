@@ -22,7 +22,7 @@ public class Minesweeper{
     }
 //-------------------------------------------------------//    
     for(int k = 0; k < arrans.length; k++){
-      for(int j = 0; j < arrans.length[k]; j++){
+      for(int j = 0; j < arrans.length; j++){
         if(arrans[k][j] == -1){
           if(k == 0){
             if(j == 0){ //top left corner of the field
