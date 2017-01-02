@@ -1,10 +1,11 @@
 public class Minesweeper{
 //-------------------------------------------------------//
   private int[][] arrans; //array with answers
-  private int[][] arrresult; //array with input
+  private String[][] arrresult; //array with input
 //-------------------------------------------------------//  
-  public Minsweeper(int s; int m){
+  public Minesweeper(int s; int m){
     arrans = new int[s][s];
+    arrresult = new String[s][s];
     int a = 0;
     while(a < m){ //WHILE LOOP FOR MINES ADDED TO FIELD
       for(int r = 0; r < arrans.length; r++){
@@ -93,14 +94,19 @@ public class Minesweeper{
           }
         }
       }
-    }     
+    }
+    for(int a=0; a<arrresult.length; a++){
+      for(int b=0; b<arrresult.length;b++){
+        arrresult[a][b]="?";
+      }
+    }
+  }     
 //-------------------------------------------------------//        
   public boolean isMine(int q, int w){
     if (arrans[q][w] == -1){
-      arrresult= arrans;
       return true;
     }
-    arrresult[q][w] = arrans[q][w];
+    arrresult[q][w] = Interger.toString(arrans[q][w]);
     return false;
   }
 //-------------------------------------------------------//
@@ -154,28 +160,11 @@ public class Minesweeper{
 //-------------------------------------------------------//
 
   
-  public String toString(){
-    System.out.println("");
-    for (int x=0; x<arrans.length+2; x++){
-      System.out.print(" - ");
-    }             
-    for(int j=0; j<arrans.length*2; j++){
-      System.out.println("| ");
-      if(j%2==0){
-        for(int k=0; k<arrans.length*2;k++ ){
-          if(k%2==0){
-            System.out.print(arrans[j/2][k/2] +"");
-          }
-          else{
-            System.out.print(" | ")
-          }
-        }
-      }
-      else{
-        System.out.println("");
-        for (int y = 0; y< arrans.length + 2; y++){
-          System.out.print(" - ");
-        }
+  public String toString(){         
+    for(int j=0; j< arrresult.length; j++){
+      System.out.println("");
+      for(int k=0; k< arrresult.length; k++){
+          System.out.print(" " + arrresult[j][k]+ " ")
       }
     }
   }
