@@ -161,10 +161,10 @@ public class Minesweeper{
 
   
   public String toString(){         
-    for(int j=0; j< arrresult.length; j++){
+    for(int k=0; k< arrresult.length; k++){
       System.out.println("");
-      for(int k=0; k< arrresult.length; k++){
-          System.out.print(" " + arrresult[j][k]+ " ")
+      for(int j=0; j< arrresult.length; j++){
+          System.out.print(" " + arrresult[k][j]+ " ")
       }
     }
   }
