@@ -169,4 +169,19 @@ public class Minesweeper{
     }
   }
   
+  public void setFlag(int q, int w){
+    arrresult[q][w] = "!";
+  }
+  
+  public void setUnsure(int q, int w){
+    arrresult[q][w] = "?";
+  }
+  
+  public boolean isFinished(){
+    for(int k = 0; k < arrresult.length; k++){
+      for(int j = 0; j < arrresult.length; j++){
+        //idk
+      }
+    }
+  }
 }
