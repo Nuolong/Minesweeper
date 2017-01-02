@@ -1,7 +1,7 @@
 public class Minesweeper{
 //-------------------------------------------------------//
   private int[][] arrans; //array with answers
-  private int[][] arrresult //array with input
+  private int[][] arrresult; //array with input
 //-------------------------------------------------------//  
   public Minsweeper(int s; int m){
     arrans = new int[s][s];
@@ -21,7 +21,7 @@ public class Minesweeper{
     }
 //-------------------------------------------------------//    
     for(int k = 0; k < arrans.length; k++){
-      for(int j = 0; j < arrans.length; j++){
+      for(int j = 0; j < arrans.length[k]; j++){
         if(arrans[k][j] == -1){
           if(k == 0){
             if(j == 0){ //top left corner of the field
@@ -143,7 +143,29 @@ public class Minesweeper{
 
   
   public String toString(){
-    
+    System.out.println("");
+    for (int x=0; x<arrans.length+2; x++){
+      System.out.print(" - ");
+    }             
+    for(int j=0; j<arrans.length*2; j++){
+      System.out.println("| ");
+      if(j%2==0){
+        for(int k=0; k<arrans.length*2;k++ ){
+          if(k%2==0){
+            System.out.print(arrans[j/2][k/2] +"");
+          }
+          else{
+            System.out.print(" | ")
+          }
+        }
+      }
+      else{
+        System.out.println("");
+        for (int y = 0; y< arrans.length + 2; y++){
+          System.out.print(" - ");
+        }
+      }
+    }
   }
   
 }
