@@ -178,10 +178,21 @@ public class Minesweeper{
   }
   
   public boolean isFinished(){
+    int check = 0;
     for(int k = 0; k < arrresult.length; k++){
       for(int j = 0; j < arrresult.length; j++){
-        //idk
+        if(arrresult[k][j] == "?" && arrans[k][j] == -1){
+          check++
+        }else{
+          return false;
+        }
       }
     }
+    if(check == m){
+      return true;
+    }else{
+      return false;
+    }
   }
+  
 }
