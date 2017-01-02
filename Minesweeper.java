@@ -173,16 +173,14 @@ public class Minesweeper{
     arrresult[q][w] = "!";
   }
   
-  public void setUnsure(int q, int w){
-    arrresult[q][w] = "?";
-  }
-  
   public boolean isFinished(){
     int check = 0;
     for(int k = 0; k < arrresult.length; k++){
       for(int j = 0; j < arrresult.length; j++){
-        if(arrresult[k][j] == "?" && arrans[k][j] == -1){
-          check++
+        if(arrresult[k][j] == "!" && arrans[k][j] == -1){
+          check++;
+        }else if(arrresult[k][j] == "?" && arrans[k][j] == -1){
+          check++;
         }else{
           return false;
         }
