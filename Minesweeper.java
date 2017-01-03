@@ -160,7 +160,7 @@ public class Minesweeper{
 //-------------------------------------------------------//
 
   
-  public String toString(){         
+  public void printArray(){         
     for(int k=0; k< arrresult.length; k++){
       System.out.println("");
       for(int j=0; j< arrresult.length; j++){
