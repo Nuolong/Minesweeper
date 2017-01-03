@@ -11,11 +11,11 @@ public class MinesweeperTest{
     
     if((r * r) <= m){   //If there are more mines than the amount of spaces allowed, then the game stops
       System.out.println("You specified too many mines! You can't win!");
-      break;
+      return;
     }
     Minesweeper arr = new Minesweeper(r,m);
     while(true){  
-      System.out.println(arr);
+      arr.printArray();
       System.out.println("Enter the row coordinate of the spot you would like to choose:");
       int q = kb.nextInt();
       System.out.println("Enter the column coordinate of the spot you would like to choose:");
@@ -25,7 +25,7 @@ public class MinesweeperTest{
     
       if(s == 1){
         if(arr.isMine(q,w) == true){     //If the player selects a mine, then the game ends.
-          System.out.println(arr);
+          arr.printArray();
           System.out.println("Game over! You have selected a mine! ;w;");
           break;
         } 
@@ -36,7 +36,7 @@ public class MinesweeperTest{
       if(arr.isFinished()== true){    //if the player manages to find all the white spaces(spaces with no mines) the the game ends.
         System.out.println(arr);
         System.out.println("Yay, you finished the game!!");
-          break;
+        break;
       }
     }
   }
