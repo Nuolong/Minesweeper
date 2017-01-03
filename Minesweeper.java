@@ -2,8 +2,10 @@ public class Minesweeper{
 //-------------------------------------------------------//
   private int[][] arrans; //array with answers
   private String[][] arrresult; //array with input
+  private int mines;
 //-------------------------------------------------------//  
   public Minesweeper(int s, int m){
+    mines = m;
     arrans = new int[s][s];
     arrresult = new String[s][s];
     int a = 0;
@@ -186,7 +188,7 @@ public class Minesweeper{
         }
       }
     }
-    if(check == m){
+    if(check == mines){
       return true;
     }else{
       return false;
