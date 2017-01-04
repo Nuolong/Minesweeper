@@ -12,7 +12,7 @@ public class Minesweeper{
     while(a < m){ //WHILE LOOP FOR MINES ADDED TO FIELD
       for(int r = 0; r < arrans.length; r++){
         for(int c = 0; c < arrans.length; c++){
-          if(arrans[r][c]==0;){
+          if(arrans[r][c]==0){
             if((int)Math.random()*2 + 1 == 1 ){
               arrans[r][c] = -1;  //-1 is a mine
               a++; //INCREMENT TO END THE WHILE LOOP WHEN MINE QUANTITY IS FULFILLED
