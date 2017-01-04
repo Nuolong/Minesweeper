@@ -17,9 +17,9 @@ public class MinesweeperTest{
     while(true){  
       arr.printArray();
       System.out.println("Enter the row coordinate of the spot you would like to choose:");
-      int q = kb.nextInt();
+      int q = kb.nextInt()-1;
       System.out.println("Enter the column coordinate of the spot you would like to choose:");
-      int w = kb.nextInt();
+      int w = kb.nextInt()-1;
       System.out.println("What would you like to do?\n1 - Select\n2 - Flag");
       int s = kb.nextInt();
     
