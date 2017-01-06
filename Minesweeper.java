@@ -12,17 +12,16 @@ public class Minesweeper{
     while(a < m){ //WHILE LOOP FOR MINES ADDED TO FIELD
       int x = (int) (Math.random() * s);
       int y = (int) (Math.random() * s);
-          if (arrans[x][y] != -1) {
-            arrans[x][y] = -1;
-            if (x > 0 && y > 0){arrans[x-1][y-1] += 1;}
-            if (x > 0){arrans[x-1][y] += 1;}
-            if (x > 0 && y < arrans[0].length - 1){arrans[x-1][y+1] += 1;}
-            if (y > 0){arrans[x][y-1] += 1;}
-            if (y < arrans[0].length - 1){arrans[x][y+1] += 1;}
-            if (x < arrans.length - 1 && y > 0){arrans[x+1][y-1] += 1;}
-            if (x < arrans.length - 1){arrans[x+1][y] += 1;}
-            if (x < arrans.length - 1 && y < arrans.length - 1){arrans[x+1][y+1] += 1;}
-            a++;
+          if (arrans[x][y] != -1) {arrans[x][y] = -1;}
+          if (x > 0 && y > 0){arrans[x-1][y-1] += 1;}
+          if (x > 0){arrans[x-1][y] += 1;}
+          if (x > 0 && y < arrans[0].length - 1){arrans[x-1][y+1] += 1;}
+          if (y > 0){arrans[x][y-1] += 1;}
+          if (y < arrans[0].length - 1){arrans[x][y+1] += 1;}
+          if (x < arrans.length - 1 && y > 0){arrans[x+1][y-1] += 1;}
+          if (x < arrans.length - 1){arrans[x+1][y] += 1;}
+          if (x < arrans.length - 1 && y < arrans.length - 1){arrans[x+1][y+1] += 1;}
+          a++;
       }
     }
     for(int z=0; z<arrresult.length; z++){
