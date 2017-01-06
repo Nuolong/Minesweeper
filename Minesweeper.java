@@ -27,7 +27,7 @@ public class Minesweeper{
     }
     for(int z=0; z<arrresult.length; z++){
       for(int b=0; b<arrresult.length;b++){
-        arrresult[z][b]="?";
+        arrresult[z][b]="-";
       }
     }
   }     
@@ -45,7 +45,7 @@ public void clearSpot(int x, int y) {
   if (arrans[x][y] != 0) {
     arrresult[x][y] = Integer.toString(arrans[x][y]);
   } 
-  else if (arrresult[x][y].equals("?")) {
+  else if (arrresult[x][y].equals("-")) {
      arrresult[x][y] = Integer.toString(arrans[x][y]);
      if (x > 0 && y > 0){clearSpot(x-1, y-1);}
      if (x > 0){clearSpot(x-1, y);}
@@ -81,7 +81,7 @@ public void clearSpot(int x, int y) {
       for(int j = 0; j < arrresult.length; j++){
         if(arrresult[k][j] == "!" && arrans[k][j] == -1){
           check++;
-        }else if(arrresult[k][j] == "?" && arrans[k][j] == -1){
+        }else if(arrresult[k][j] == "-" && arrans[k][j] == -1){
           check++;
         }else{
           return false;
