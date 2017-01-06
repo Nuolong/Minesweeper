@@ -121,48 +121,48 @@ public class Minesweeper{
   public void revealNear(int q, int w){
     if(q == 0){
       if(w == 0){ //top left corner of the field
-        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
-        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //br 
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //bm
+        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //br 
         if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
       }
       else if(w != 0 && w != arrans.length - 1){ //the top edge of the field excluding the corners
         if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
         if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
-        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //bl 
-        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
-        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //br 
+        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //bl 
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //bm
+        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //br 
       }
       else if(w == arrans.length - 1){ //top right corner of the field
         if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
-        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //bl 
-        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
+        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //bl 
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //bm
       }
     }
     else if(w == 0){ 
       if(q == arrans.length - 1){ //bottom left corner of the field
-        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
-        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //tr 
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //tm
+        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //tr 
         if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
       }
       if(q != 0 && q != arrans.length - 1){ //the left edge of the field excluding the corners
-        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
-        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //tr 
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //tm
+        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //tr 
         if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
-        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
-        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //br 
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //bm
+        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //br 
       }
     }
     else if(w == arrans.length - 1){
       if(q != 0 && q != arrans.length - 1){ //the right edge of the field excluding the corners
-        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //tl 
-        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
+        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //tl 
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //tm
         if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
-        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //bl 
-        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
+        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //bl 
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //bm
       }
       else if(q == arrans.length - 1){ //the bottom right corner of the field
-        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //tl 
-        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
+        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //tl 
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //tm
         if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
       }
     }
@@ -170,21 +170,21 @@ public class Minesweeper{
       if(w != 0 && w != arrans.length - 1){ //the bottom edge of the field exclusing the corner
         if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
         if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
-        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //tl 
-        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
-        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //tr 
+        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //tl 
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //tm
+        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //tr 
       }
     }
     else if(q != 0 && q != arrans.length - 1){
       if(w != 0 && w != arrans.length - 1){
-        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //bl 
-        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
-        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //br 
+        if(arrans[q+1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //bl 
+        if(arrans[q+1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
+        if(arrans[q+1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //br 
         if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
         if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
-        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //tl 
-        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
-        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //tr 
+        if(arrans[q-1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //tl 
+        if(arrans[q-1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
+        if(arrans[q-1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //tr 
       }
     }
     
