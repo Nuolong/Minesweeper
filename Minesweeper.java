@@ -2,27 +2,34 @@ public class Minesweeper{
 //-------------------------------------------------------//
   private int[][] arrans; //array with answers
   private String[][] arrresult; //array with input
+  private int mines;
 //-------------------------------------------------------//  
-  public Minesweeper(int s; int m){
+  public Minesweeper(int s, int m){
+    mines = m;
     arrans = new int[s][s];
     arrresult = new String[s][s];
     int a = 0;
     while(a < m){ //WHILE LOOP FOR MINES ADDED TO FIELD
       for(int r = 0; r < arrans.length; r++){
-        for(int c = 0; c < arr.length[r]; c++){
-          if((int)Math.random() + 1 == 1 ){
-            arrans[r][c] = -1;  //-1 is a mine
-            a++; //INCREMENT TO END THE WHILE LOOP WHEN MINE QUANTITY IS FULFILLED
-          }
-          else{
-            arrans[r][c] = 0; // means there is no mine
+        for(int c = 0; c < arrans.length; c++){
+          if(arrans[r][c]==0){
+            if((int)Math.random()*2 + 1 == 1 ){
+              arrans[r][c] = -1;  //-1 is a mine
+              a++; //INCREMENT TO END THE WHILE LOOP WHEN MINE QUANTITY IS FULFILLED
+              if(a==m || a>m){
+                break;
+              }
+            }
+            else{
+              arrans[r][c] = 0; // means there is no mine
+            }
           }
         }
       }
     }
 //-------------------------------------------------------//    
     for(int k = 0; k < arrans.length; k++){
-      for(int j = 0; j < arrans.length[k]; j++){
+      for(int j = 0; j < arrans.length; j++){
         if(arrans[k][j] == -1){
           if(k == 0){
             if(j == 0){ //top left corner of the field
@@ -95,19 +102,92 @@ public class Minesweeper{
         }
       }
     }
-    for(int a=0; a<arrresult.length; a++){
+    for(int z=0; z<arrresult.length; z++){
       for(int b=0; b<arrresult.length;b++){
-        arrresult[a][b]="?";
+        arrresult[z][b]="?";
       }
     }
   }     
 //-------------------------------------------------------//        
   public boolean isMine(int q, int w){
+    arrresult[q][w] = Integer.toString(arrans[q][w]);
     if (arrans[q][w] == -1){
       return true;
     }
-    arrresult[q][w] = Interger.toString(arrans[q][w]);
+    
     return false;
+  }
+//-------------------------------------------------------//
+  public void revealNear(int q, int w){
+    if(q == 0){
+      if(w == 0){ //top left corner of the field
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
+        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //br 
+        if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
+      }
+      else if(w != 0 && w != arrans.length - 1){ //the top edge of the field excluding the corners
+        if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
+        if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
+        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //bl 
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
+        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //br 
+      }
+      else if(w == arrans.length - 1){ //top right corner of the field
+        if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
+        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //bl 
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
+      }
+    }
+    else if(w == 0){ 
+      if(q == arrans.length - 1){ //bottom left corner of the field
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
+        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //tr 
+        if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
+      }
+      if(q != 0 && q != arrans.length - 1){ //the left edge of the field excluding the corners
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
+        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //tr 
+        if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
+        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //br 
+      }
+    }
+    else if(w == arrans.length - 1){
+      if(q != 0 && q != arrans.length - 1){ //the right edge of the field excluding the corners
+        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //tl 
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
+        if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
+        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //bl 
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
+      }
+      else if(q == arrans.length - 1){ //the bottom right corner of the field
+        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //tl 
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
+        if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
+      }
+    }
+    else if(q == arrans.length - 1){
+      if(w != 0 && w != arrans.length - 1){ //the bottom edge of the field exclusing the corner
+        if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
+        if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
+        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //tl 
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
+        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //tr 
+      }
+    }
+    else if(q != 0 && q != arrans.length - 1){
+      if(w != 0 && w != arrans.length - 1){
+        if(arrans[q-1][w-1] == 0){arrresult[q-1][w-1] = Integer.toString(arrans[q-1][w-1]);} //bl 
+        if(arrans[q-1][w] == 0){arrresult[q-1][w] = Integer.toString(arrans[q-1][w]);} //bm
+        if(arrans[q-1][w+1] == 0){arrresult[q-1][w+1] = Integer.toString(arrans[q-1][w+1]);} //br 
+        if(arrans[q][w-1] == 0){arrresult[q][w-1] = Integer.toString(arrans[q][w-1]);} //ml
+        if(arrans[q][w+1] == 0){arrresult[q][w+1] = Integer.toString(arrans[q][w+1]);} //mr
+        if(arrans[q+1][w-1] == 0){arrresult[q+1][w-1] = Integer.toString(arrans[q+1][w-1]);} //tl 
+        if(arrans[q+1][w] == 0){arrresult[q+1][w] = Integer.toString(arrans[q+1][w]);} //tm
+        if(arrans[q+1][w+1] == 0){arrresult[q+1][w+1] = Integer.toString(arrans[q+1][w+1]);} //tr 
+      }
+    }
+    
   }
 //-------------------------------------------------------//
   public void topLeft(int q, int w){
@@ -123,49 +203,73 @@ public class Minesweeper{
   }
 //-------------------------------------------------------//
   public void topRight(int q, int w){
-  if(arrans[q - 1][w + 1] != -1){
+    if(arrans[q - 1][w + 1] != -1){
       arrans[q - 1][w + 1] += 1;
     }
   }
 //-------------------------------------------------------//
   public void middleLeft(int q, int w){
-  if(arrans[q][w - 1] != -1){
+    if(arrans[q][w - 1] != -1){
       arrans[q][w - 1] += 1;
     }
   }
 //-------------------------------------------------------//
   public void middleRight(int q, int w){
-  if(arrans[q][w + 1] != -1){
+    if(arrans[q][w + 1] != -1){
       arrans[q][w + 1] += 1;
     }
   }
 //-------------------------------------------------------//
   public void bottomLeft(int q, int w){
-  if(arrans[q + 1][w - 1] != -1){
+    if(arrans[q + 1][w - 1] != -1){
       arrans[q + 1][w - 1] += 1;
     }
   }
 //-------------------------------------------------------//
   public void bottomMiddle(int q, int w){
-  if(arrans[q + 1][w] != -1){
+    if(arrans[q + 1][w] != -1){
       arrans[q + 1][w] += 1;
     }
   }
 //-------------------------------------------------------//
   public void bottomRight(int q, int w){
-  if(arrans[q + 1][w + 1] != -1){
+    if(arrans[q + 1][w + 1] != -1){
       arrans[q + 1][w + 1] += 1;
     }
   }
 //-------------------------------------------------------//
-
   
-  public String toString(){         
+  
+  public void printArray(){         
     for(int k=0; k< arrresult.length; k++){
       System.out.println("");
       for(int j=0; j< arrresult.length; j++){
-          System.out.print(" " + arrresult[k][j]+ " ")
+        System.out.print(" " + arrresult[k][j]+ " ");
       }
+    }
+  }
+  
+  public void setFlag(int q, int w){
+    arrresult[q][w] = "!";
+  }
+  
+  public boolean isFinished(){
+    int check = 0;
+    for(int k = 0; k < arrresult.length; k++){
+      for(int j = 0; j < arrresult.length; j++){
+        if(arrresult[k][j] == "!" && arrans[k][j] == -1){
+          check++;
+        }else if(arrresult[k][j] == "?" && arrans[k][j] == -1){
+          check++;
+        }else{
+          return false;
+        }
+      }
+    }
+    if(check == mines){
+      return true;
+    }else{
+      return false;
     }
   }
   
