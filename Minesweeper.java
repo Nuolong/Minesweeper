@@ -10,96 +10,19 @@ public class Minesweeper{
     arrresult = new String[s][s];
     int a = 0;
     while(a < m){ //WHILE LOOP FOR MINES ADDED TO FIELD
-      for(int r = 0; r < arrans.length; r++){
-        for(int c = 0; c < arrans.length; c++){
-          if(arrans[r][c]==0){
-            if((int)Math.random()*2 + 1 == 1 ){
-              arrans[r][c] = -1;  //-1 is a mine
-              a++; //INCREMENT TO END THE WHILE LOOP WHEN MINE QUANTITY IS FULFILLED
-              if(a==m || a>m){
-                break;
-              }
-            }
-            else{
-              arrans[r][c] = 0; // means there is no mine
-            }
-          }
-        }
-      }
-    }
-//-------------------------------------------------------//    
-    for(int k = 0; k < arrans.length; k++){
-      for(int j = 0; j < arrans.length; j++){
-        if(arrans[k][j] == -1){
-          if(k == 0){
-            if(j == 0){ //top left corner of the field
-              bottomMiddle(k,j);
-              bottomRight(k,j);
-              middleRight(k,j);
-            }
-            else if(j != 0 && j != arrans.length - 1){ //the top edge of the field excluding the corners
-              middleLeft(k,j);
-              middleRight(k,j);
-              bottomLeft(k,j);
-              bottomMiddle(k,j);
-              bottomRight(k,j);
-            }
-            else if(j == arrans.length - 1){ //top right corner of the field
-              middleLeft(k,j);
-              bottomLeft(k,j);
-              bottomMiddle(k,j);
-            }
-          }
-          else if(j == 0){ 
-            if(k == arrans.length - 1){ //bottom left corner of the field
-              topMiddle(k,j);
-              topRight(k,j);
-              middleRight(k,j);
-            }
-            if(k != 0 && k != arrans.length - 1){ //the left edge of the field excluding the corners
-              topMiddle(k,j);
-              topRight(k,j);
-              middleRight(k,j);
-              bottomMiddle(k,j);
-              bottomRight(k,j);
-            }
-          }
-          else if(j == arrans.length - 1){
-            if(k != 0 && k != arrans.length - 1){ //the right edge of the field excluding the corners
-              topMiddle(k,j);
-              topLeft(k,j);
-              middleLeft(k,j);
-              bottomLeft(k,j);
-              bottomMiddle(k,j);
-            }
-            else if(k == arrans.length - 1){ //the bottom right corner of the field
-              topMiddle(k,j);
-              topLeft(k,j);
-              middleLeft(k,j);
-            }
-          }
-          else if(k == arrans.length - 1){
-            if(j != 0 && j != arrans.length - 1){ //the bottom edge of the field exclusing the corner
-              middleLeft(k,j);
-              middleRight(k,j);
-              topLeft(k,j);
-              topMiddle(k,j);
-              topRight(k,j);
-            }
-          }
-          else if(k != 0 && k != arrans.length - 1){
-            if(j != 0 && j != arrans.length - 1){
-              topLeft(k,j);
-              topMiddle(k,j);
-              topRight(k,j);
-              middleLeft(k,j);
-              middleRight(k,j);
-              bottomLeft(k,j);
-              bottomMiddle(k,j);
-              bottomRight(k,j);
-            }
-          }
-        }
+      int x = (int) (Math.random() * s);
+      int y = (int) (Math.random() * s);
+          if (arrans[x][y] != -1) {
+            arrans[x][y] = -1;
+            if (x > 0 && y > 0){arrans[x-1][y-1] += 1;}
+            if (x > 0){arrans[x-1][y] += 1;}
+            if (x > 0 && y < arrans[0].length - 1){arrans[x-1][y+1] += 1;}
+            if (y > 0){arrans[x][y-1] += 1;}
+            if (y < arrans[0].length - 1){arrans[x][y+1] += 1;}
+            if (x < arrans.length - 1 && y > 0){arrans[x+1][y-1] += 1;}
+            if (x < arrans.length - 1){arrans[x+1][y] += 1;}
+            if (x < arrans.length - 1 && y < arrans.length - 1){arrans[x+1][y+1] += 1;}
+            a++;
       }
     }
     for(int z=0; z<arrresult.length; z++){
@@ -110,63 +33,30 @@ public class Minesweeper{
   }     
 //-------------------------------------------------------//        
   public boolean isMine(int q, int w){
-    arrresult[q][w] = Integer.toString(arrans[q][w]);
     if (arrans[q][w] == -1){
       return true;
     }
-    
-    return false;
-  }
-//-------------------------------------------------------//
-  public void topLeft(int q, int w){
-    if(arrans[q - 1][w - 1] != -1){
-      arrans[q - 1][w - 1] += 1;
+    else{
+      clearSpot(q, w);
+      return false;
     }
   }
-//-------------------------------------------------------//       
-  public void topMiddle(int q, int w){
-    if(arrans[q - 1][w] != -1){
-      arrans[q - 1][w] += 1;
-    }
-  }
-//-------------------------------------------------------//
-  public void topRight(int q, int w){
-  if(arrans[q - 1][w + 1] != -1){
-      arrans[q - 1][w + 1] += 1;
-    }
-  }
-//-------------------------------------------------------//
-  public void middleLeft(int q, int w){
-  if(arrans[q][w - 1] != -1){
-      arrans[q][w - 1] += 1;
-    }
-  }
-//-------------------------------------------------------//
-  public void middleRight(int q, int w){
-  if(arrans[q][w + 1] != -1){
-      arrans[q][w + 1] += 1;
-    }
-  }
-//-------------------------------------------------------//
-  public void bottomLeft(int q, int w){
-  if(arrans[q + 1][w - 1] != -1){
-      arrans[q + 1][w - 1] += 1;
-    }
-  }
-//-------------------------------------------------------//
-  public void bottomMiddle(int q, int w){
-  if(arrans[q + 1][w] != -1){
-      arrans[q + 1][w] += 1;
-    }
-  }
-//-------------------------------------------------------//
-  public void bottomRight(int q, int w){
-  if(arrans[q + 1][w + 1] != -1){
-      arrans[q + 1][w + 1] += 1;
-    }
-  }
-//-------------------------------------------------------//
-
+public void clearSpot(int x, int y) {
+  if (arrans[x][y] != 0) {
+    arrresult[x][y] = Integer.toString(arrans[x][y]);
+  } 
+  else if (arrresult[x][y].equals("?")) {
+     arrresult[x][y] = Integer.toString(arrans[x][y]);
+     if (x > 0 && y > 0){clearSpot(x-1, y-1);}
+     if (x > 0){clearSpot(x-1, y);}
+     if (x > 0 && y < arrans[0].length - 1){clearSpot(x-1, y+1);}
+     if (y > 0){clearSpot(x, y-1);}
+     if (y < arrans[0].length - 1){clearSpot(x, y+1);}
+     if (x < arrans.length - 1 && y > 0){clearSpot(x+1, y-1);}
+     if (x < arrans.length - 1){clearSpot(x+1, y);}
+     if (x < arrans.length - 1 && y < arrans.length - 1){clearSpot(x+1, y+1);}
+     }
+   }  
   
   public void printArray(){         
     for(int k=0; k< arrresult.length; k++){
@@ -179,6 +69,10 @@ public class Minesweeper{
   
   public void setFlag(int q, int w){
     arrresult[q][w] = "!";
+  }
+  
+  public void setUnsure(int q, int w){
+    arrresult[q][w]= "?";
   }
   
   public boolean isFinished(){
@@ -194,11 +88,6 @@ public class Minesweeper{
         }
       }
     }
-    if(check == mines){
-      return true;
-    }else{
-      return false;
-    }
+    return check == mines;
   }
-  
 }
