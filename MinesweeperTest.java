@@ -22,7 +22,7 @@ public class MinesweeperTest{
       int w = kb.nextInt()-1;
       System.out.println("What would you like to do?\n1 - Select\n2 - Flag\n3 - Unsure");
       int s = kb.nextInt();
-    
+      
       if(s == 1){
         if(arr.isMine(q,w) == true){     //If the player selects a mine, then the game ends.
           arr.printArray();
@@ -36,8 +36,8 @@ public class MinesweeperTest{
       else if(s == 3){
         arr.setUnsure(q,w);
       }
-      if(arr.isFinished()== true){    //if the player manages to find all the white spaces(spaces with no mines) the the game ends.
-        System.out.println(arr);
+      if(arr.isFinished()){    //if the player manages to find all the white spaces(spaces with no mines) the the game ends.
+        arr.printArray();
         System.out.println("Yay, you finished the game!!");
         break;
       }
