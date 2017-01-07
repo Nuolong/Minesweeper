@@ -76,18 +76,14 @@ public void clearSpot(int x, int y) {
   }
   
   public boolean isFinished(){
-    int check = 0;
+    int count=0;
     for(int k = 0; k < arrresult.length; k++){
       for(int j = 0; j < arrresult.length; j++){
-        if(arrresult[k][j] == "!" && arrans[k][j] == -1){
-          check++;
-        }else if(arrresult[k][j] == "-" && arrans[k][j] == -1){
-          check++;
-        }else{
-          return false;
+        if(arrresult[k][j].equals("-") || arrresult[k][j].equals("!")){
+          ++count;
         }
       }
     }
-    return check == mines;
+    return count==mines;
   }
 }
